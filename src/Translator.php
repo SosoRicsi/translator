@@ -36,8 +36,11 @@
 		|                    return an array, or if the translation key is not found.
 		|----------------------------------------------------------------------------
 		*/
-    		public static function translate(string $language, string $key, ?string $modifier = ''): string
+    		public static function translate(string $key, ?string $language, ?string $modifier = ''): string
     		{
+
+			$language = strtoupper($language);
+
 			$translationFile = __DIR__."/language/{$language}.php";
 
 			if (!file_exists($translationFile)) {
